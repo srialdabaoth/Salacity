@@ -11,28 +11,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023220513) do
+ActiveRecord::Schema.define(version: 20150707195202) do
 
-# Could not dump table "branches" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
-# Could not dump table "keywords" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
-
-  create_table "links", force: true do |t|
-    t.text    "page_id"
-    t.text    "child_id"
-    t.integer "order"
-    t.text    "body"
-    t.text    "created_at"
-    t.text    "updated_at"
-    t.text    "_id"
+  create_table "branches", force: true do |t|
+    t.text     "branch_id"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-# Could not dump table "locations" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "keywords", force: true do |t|
+    t.text     "keyword"
+    t.text     "page_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
-# Could not dump table "pages" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "links", force: true do |t|
+    t.integer  "page_id"
+    t.text     "child_id"
+    t.integer  "order"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "links", ["page_id"], name: "index_links_on_page_id", using: :btree
+
+  create_table "locations", force: true do |t|
+    t.text     "location_id"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pages", force: true do |t|
+    t.string   "page_id"
+    t.text     "branch_id"
+    t.text     "location_id"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.date     "date"
+  end
 
 end

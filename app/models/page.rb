@@ -3,6 +3,7 @@ class Page < ActiveRecord::Base
   belongs_to :location
   belongs_to :branch
   has_many :links
+  accepts_nested_attributes_for :links
   validates :page_id, presence: true
 
 end

@@ -70,6 +70,7 @@ class PagesController < ApplicationController
   end
 
   def page_params
-    params.require(:page).permit(:link_id, :body, :branch_id, :location_id)
+    params.require(:page).permit(:page_id, :body, :branch_id, :location_id, links_attributes:
+    [:id, :page_id, :child_id, :order, :body])
   end
 end

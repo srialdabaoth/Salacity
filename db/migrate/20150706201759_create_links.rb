@@ -1,7 +1,6 @@
 class CreateLinks < ActiveRecord::Migration
   def change
     create_table :links do |t|
-      t.integer :id, primary_key: true
       t.text :page_id
       t.text :child_id
       t.integer :order
