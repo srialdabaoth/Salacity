@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root :to=>"form#index"
+  root :to=>"pages#index"
 
   resources :links
 
