@@ -1,12 +1,10 @@
 class CreateLinks < ActiveRecord::Migration
   def change
     create_table :links do |t|
-      t.integer :id, primary_key: true
-      t.text :page_id
-      t.text :child_id
+      t.integer :child_id
       t.integer :order
       t.text :body
-      t.references :page, foreign_key: true, index: true
+      t.references :page, index: true
 
       t.timestamps
     end

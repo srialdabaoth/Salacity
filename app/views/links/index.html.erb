@@ -14,7 +14,7 @@
   <tbody>
     <% @links.each do |link| %>
       <tr>
-        <td><%= link.parent_id %></td>
+        <td><%= link.page_id %></td>
         <td><%= link.child_id %></td>
         <td><%= link.order %></td>
         <td><%= link.body %></td>
@@ -29,3 +29,11 @@
 <br>
 
 <%= link_to 'New Link', new_link_path %>
+<br>
+<%= link_to 'New Location', new_location_path %>
+<br>
+<%= link_to 'New Page', new_page_path %>
+<br>
+<%= link_to 'New Keyword', new_keyword_path %>
+<br>
+<%= link_to 'New Branch', new_branch_path %>

@@ -23,6 +23,7 @@ class LinksController < ApplicationController
 
   # POST /links
   # POST /links.json
+=begin
   def create
     @link = Link.new(link_params)
 
@@ -36,6 +37,13 @@ class LinksController < ApplicationController
       end
     end
   end
+=end
+  def create
+    @page = Page.find(params[:page_id])
+    @link = @page.links.create(link_params)
+    redirect_to page_path(@page)
+  end
+
 
   # PATCH/PUT /links/1
   # PATCH/PUT /links/1.json
@@ -69,6 +77,6 @@ class LinksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params
-      params.require(:link).permit(:parent_id, :child_id, :order, :body)
+      params.require(:link).permit(:page_id, :child_id, :order, :body)
     end
 end

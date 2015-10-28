@@ -11,23 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20151023220513) do
 
-# Could not dump table "BRANCH" because of following NoMethodError
+# Could not dump table "branches" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
 
-# Could not dump table "KEYWORDS" because of following NoMethodError
+# Could not dump table "keywords" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
 
-# Could not dump table "LINKS" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
-
-# Could not dump table "LOCATIONS" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
-
-  create_table "android_metadata", id: false, force: true do |t|
-    t.text "locale", default: "en_US"
+  create_table "links", force: true do |t|
+    t.text    "page_id"
+    t.text    "child_id"
+    t.integer "order"
+    t.text    "body"
+    t.text    "created_at"
+    t.text    "updated_at"
+    t.text    "_id"
   end
+
+# Could not dump table "locations" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
 # Could not dump table "pages" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass

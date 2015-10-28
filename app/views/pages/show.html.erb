@@ -1,9 +1,60 @@
 <p id="notice"><%= notice %></p>
-
+<h2>Page</h2>
 <p>
   <strong>Page:</strong>
   <%= @page.page_id %>
 </p>
+
+<p>
+    <strong>Body:</strong>
+    <%= @page.body %>
+</p>
+
+<p>
+    <strong>Branch:</strong>
+    <%= @page.branch_id %>
+</p>
+
+<p>
+    <strong>Location:</strong>
+    <%= @page.location_id %>
+</p>
+
+<h2>Links</h2>
+<% @page.links.each do |link| %>
+    <p>
+        <strong>Child ID:</strong>
+        <%= link.child_id %>
+    </p>
+
+    <p>
+        <strong>Body:</strong>
+        <%= link.body %>
+    </p>
+<% end %>
+<strong>Add a link:</strong>
+<%= form_for([@page, @page.links.build]) do |f| %>
+    <p>
+        <%= f.label :page_id %><br>
+        <%= f.text_area :page_id %>
+    </p>
+    <p>
+        <%= f.label :child_id %><br>
+        <%= f.text_area :child_id %>
+    </p>
+    <p>
+        <%= f.label :order %><br>
+        <%= f.number_field :order %>
+    </p>
+    <p>
+        <%= f.label :body %><br>
+        <%= f.text_area :body %>
+    </p>
+    <p>
+        <%= f.submit %>
+    </p>
+<% end %>
+
 
 <%= link_to 'Edit', edit_page_path(@page) %> |
 <%= link_to 'Back', pages_path %>
