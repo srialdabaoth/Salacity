@@ -28,6 +28,10 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem "nifty-generators", :group => :development
 #allows non default foreign keys
 gem 'foreigner'
+#assists creating seeds.rb from existing db state
+gem 'seed_dump', '~> 3.2', '>= 3.2.2'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
